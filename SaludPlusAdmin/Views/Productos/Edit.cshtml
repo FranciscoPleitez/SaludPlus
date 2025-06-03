@@ -1,0 +1,84 @@
+﻿@model SaludPlusAdmin.Models.Productos
+
+@{
+    ViewBag.Title = "Editar Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Editar Producto</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card p-4 shadow-sm">
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+        @Html.HiddenFor(model => model.ProductoID)
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.Nombre, new { @class = "form-label fw-bold" })
+            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.CodigoBarras, new { @class = "form-label fw-bold" })
+            @Html.EditorFor(model => model.CodigoBarras, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CodigoBarras, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.CategoriaID, "Categoría", new { @class = "form-label fw-bold" })
+            @Html.DropDownList("CategoriaID", (SelectList)ViewBag.Categorias, "Seleccione una categoría", new { @class = "form-select" })
+            @Html.ValidationMessageFor(model => model.CategoriaID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.ProveedorID, "Proveedor", new { @class = "form-label fw-bold" })
+            @Html.DropDownList("ProveedorID", (SelectList)ViewBag.Proveedores, "Seleccione un proveedor", new { @class = "form-select" })
+            @Html.ValidationMessageFor(model => model.ProveedorID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.Precio, new { @class = "form-label fw-bold" })
+            @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.StockActual, new { @class = "form-label fw-bold" })
+            @Html.EditorFor(model => model.StockActual, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StockActual, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.StockMinimo, new { @class = "form-label fw-bold" })
+            @Html.EditorFor(model => model.StockMinimo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StockMinimo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.FechaVencimiento, new { @class = "form-label fw-bold" })
+            @Html.EditorFor(model => model.FechaVencimiento, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+            @Html.ValidationMessageFor(model => model.FechaVencimiento, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-check mb-3">
+            @Html.CheckBox("EsControlado", Model.EsControlado ?? false)
+            @Html.LabelFor(model => model.EsControlado, new { @class = "form-check-label" })
+            @Html.ValidationMessageFor(model => model.EsControlado, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-check mb-4">
+            @Html.CheckBox("Activo", Model.Activo ?? false)
+            @Html.LabelFor(model => model.Activo, new { @class = "form-check-label" })
+            @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+}

@@ -1,0 +1,83 @@
+﻿@model SaludPlusAdmin.Models.Proveedores
+
+@{
+    ViewBag.Title = "Detalles de Proveedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 text-primary">Detalles de Proveedor</h2>
+
+<div class="card shadow-sm p-4 bg-white rounded">
+    <h4 class="mb-3 text-secondary">Información del Proveedor</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.ProveedorID)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ProveedorID)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.CUIT)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CUIT)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.CondicionesPago)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CondicionesPago)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.TiempoEstimadoEntrega)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.TiempoEstimadoEntrega)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+    </dl>
+
+    <div class="text-end mt-4">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.ProveedorID }, new { @class = "btn btn-primary me-2" })
+        @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

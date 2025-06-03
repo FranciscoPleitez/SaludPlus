@@ -1,0 +1,168 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaludPLus!</title>
+    <link rel="stylesheet" href="css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="SaludPlus.styles.css" asp-append-version="true" />
+</head>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>¡Bienvenido a SaludPLus!</h1>
+            <p class="lead">Tu plataforma integral para la gestión Medica y Farmaceutica eficiente de proveedores, productos, ventas y clientes.</p>
+        </div>
+    </section>
+
+    <div class="sections-grid">
+        <section class="module proveedores">
+            <span class="material-symbols-outlined">handshake</span>
+            <h2>Proveedores</h2>
+            <p>Gestiona tus relaciones con proveedores de manera eficiente y mantén un control total de tu cadena de suministro.</p>
+        </section>
+
+        <section class="module productos">
+            <span class="material-symbols-outlined">inventory_2</span>
+            <h2>Productos</h2>
+            <p>Explora, organiza y gestiona tu catálogo de productos de forma intuitiva.</p>
+        </section>
+
+        <section class="module ventas">
+            <span class="material-symbols-outlined">trending_up</span>
+            <h2>Ventas</h2>
+            <p>Realiza un seguimiento de tus ventas, genera informes y analiza el rendimiento de tu negocio.</p>
+        </section>
+
+        <section class="module clientes">
+            <span class="material-symbols-outlined">group</span>
+            <h2>Clientes</h2>
+            <p>Administra tus clientes, conoce su historial y fortalece tus relaciones comerciales.</p>
+        </section>
+    </div>
+</main>
+
+<style>
+    /* Estilos CSS para el nuevo diseño */
+    .hero { /* Estilos para la sección principal con la imagen/banner y el texto de bienvenida */
+    }
+
+    .hero-content { /* Estilos para centrar el texto en el banner */
+    }
+
+    .sections-grid {
+        display: grid; /* Ejemplo usando CSS Grid para la disposición */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta según necesites */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .module {
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+        .module span.material-symbols-outlined {
+            font-size: 3em; /* Ajusta el tamaño del icono */
+            color: #007bff; /* Ejemplo de color primario */
+            margin-bottom: 10px;
+        }
+
+        .module h2 {
+            margin-bottom: 10px;
+        }
+
+    .btn-primary { /* Estilos para los botones principales */
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .sections-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ligeramente más ancho */
+        gap: 30px; /* Más espacio entre las tarjetas */
+        padding: 30px;
+        background-color: #f8f9fa; /* Fondo muy claro para la cuadrícula */
+        border-radius: 10px; /* Bordes redondeados para la cuadrícula */
+    }
+
+    .module {
+        padding: 30px;
+        background-color: white; /* Fondo blanco para las tarjetas */
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
+    }
+
+        .module:hover {
+            transform: translateY(-5px); /* Ligeramente elevado al pasar el ratón */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada al pasar el ratón */
+        }
+
+        .module span.material-symbols-outlined {
+            font-size: 3.5em; /* Ligeramente más grande */
+            color: #007bff;
+            margin-bottom: 15px;
+            opacity: 0.9; /* Ligeramente menos opaco */
+        }
+
+        .module h2 {
+            margin-bottom: 15px;
+            color: #333; /* Color de texto más oscuro */
+        }
+
+        .module p {
+            color: #666; /* Color de texto secundario */
+            line-height: 1.6; /* Mejor legibilidad */
+        }
+
+    .btn-primary {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px; /* Bordes más redondeados */
+        margin-top: 15px;
+        transition: background-color 0.3s ease; /* Transición suave del color */
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    /* Ejemplo de gradiente para la sección Hero */
+    .hero {
+        background-color: #ffffff;
+        padding: 80px 20px;
+        text-align: center;
+        color: #333;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    .hero-content p.lead {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        color: #555;
+    }
+</style>

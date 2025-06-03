@@ -1,0 +1,101 @@
+﻿@model SaludPlusAdmin.Models.Proveedores
+
+@{
+    ViewBag.Title = "Crear Nuevo Proveedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 text-primary">Crear Nuevo Proveedor</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card shadow-sm p-4 bg-white rounded">
+        <h4 class="mb-3 text-secondary">Datos del Proveedor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.ProveedorID, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.ProveedorID, new { htmlAttributes = new { @class = "form-control", placeholder = "ID del Proveedor" } })
+                @Html.ValidationMessageFor(model => model.ProveedorID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre del Proveedor" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.CUIT, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.CUIT, new { htmlAttributes = new { @class = "form-control", placeholder = "CUIT" } })
+                @Html.ValidationMessageFor(model => model.CUIT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control", placeholder = "Dirección" } })
+                @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control", placeholder = "Teléfono" } })
+                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.CondicionesPago, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.CondicionesPago, new { htmlAttributes = new { @class = "form-control", placeholder = "Condiciones de Pago" } })
+                @Html.ValidationMessageFor(model => model.CondicionesPago, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.TiempoEstimadoEntrega, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.TiempoEstimadoEntrega, new { htmlAttributes = new { @class = "form-control", placeholder = "Tiempo Estimado de Entrega" } })
+                @Html.ValidationMessageFor(model => model.TiempoEstimadoEntrega, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-4 row">
+            @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10 d-flex align-items-center">
+                @Html.EditorFor(model => model.Activo, new { htmlAttributes = new { @class = "form-check-input me-2" } })
+                <label class="form-check-label" for="Activo">Activo</label>
+                @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger ms-3" })
+            </div>
+        </div>
+
+        <div class="text-end">
+            <input type="submit" value="Crear" class="btn btn-primary px-4" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary ms-2" })
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

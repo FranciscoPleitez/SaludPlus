@@ -1,0 +1,54 @@
+﻿@model List<SaludPlusAdmin.Models.CartItem>
+@{
+
+    ViewBag.Title = "Carrito de Compras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!Model.Any())
+{
+    <p>Tu carrito está vacío.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>$@item.Precio</td>
+                    <td>
+                        <form action="@Url.Action("ActualizarCantidad", "Carrito")" method="post" class="form-inline">
+                            <input type="hidden" name="id" value="@item.ProductoID" />
+                            <input type="number" name="cantidad" value="@item.Cantidad" class="form-control" min="1" style="width:70px;" />
+                            <button type="submit" class="btn btn-sm btn-success ml-2">Actualizar</button>
+                        </form>
+                    </td>
+                    <td>$@(item.Precio * item.Cantidad)</td>
+                    <td>
+                        <form action="@Url.Action("Eliminar", "Carrito")" method="post">
+                            <input type="hidden" name="id" value="@item.ProductoID" />
+                            <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4>Total: $@Model.Sum(i => i.Precio * i.Cantidad)</h4>
+
+    <form action="@Url.Action("FinalizarCompra", "Carrito")" method="post">
+        <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+    </form>
+}

@@ -1,0 +1,88 @@
+﻿@model SaludPlusAdmin.Models.Proveedores
+
+@{
+    ViewBag.Title = "Eliminar Proveedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-danger mb-4">¿Estás seguro de que deseas eliminar este proveedor?</h2>
+
+<div class="card shadow-sm p-4 bg-white rounded">
+    <h4 class="text-secondary">Detalles del Proveedor</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.ProveedorID)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ProveedorID)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.CUIT)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CUIT)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.CondicionesPago)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CondicionesPago)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.TiempoEstimadoEntrega)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.TiempoEstimadoEntrega)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mt-4 text-end">
+            <input type="submit" value="Eliminar" class="btn btn-danger me-2" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SaludPlusAdmin.Models.Productos>
+
+@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary mb-4">Listado de Productos</h2>
+
+    <div class="mb-3">
+        @Html.ActionLink("Crear nuevo producto", "Create", null, new { @class = "btn btn-success" })
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().CodigoBarras)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Categorias.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Proveedores.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().StockMinimo)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().StockActual)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().FechaVencimiento)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().EsControlado)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Activo)</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CodigoBarras)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Categorias.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Proveedores.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StockMinimo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StockActual)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaVencimiento)</td>
+                        <td>
+                            @if (item.EsControlado == true)
+                            {
+                                <span class="badge bg-danger">Sí</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">No</span>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Activo == true)
+                            {
+                                <span class="badge bg-success">Activo</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Inactivo</span>
+                            }
+                        </td>
+                        <td class="text-center">
+                            @Html.ActionLink("Editar", "Edit", new { id = item.ProductoID }, new { @class = "btn btn-sm btn-primary me-1" })<br />
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ProductoID }, new { @class = "btn btn-sm btn-info text-white me-1" })<br />
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ProductoID }, new { @class = "btn btn-sm btn-danger" })
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="10" class="text-center text-muted">No hay productos disponibles.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

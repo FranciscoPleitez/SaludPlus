@@ -1,0 +1,67 @@
+﻿@model SaludPlusAdmin.Models.Productos
+
+@{
+    ViewBag.Title = "Eliminar Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-danger mb-4">¿Estás seguro de que deseas eliminar este producto?</h2>
+
+<div class="card shadow-sm p-4 bg-white rounded">
+    <h4 class="text-secondary">Detalles del Producto</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.ProductoID)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ProductoID)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.CodigoBarras)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CodigoBarras)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            Categoría
+        </dt>
+        <dd class="col-sm-9">
+            @(Model.Categorias != null ? Model.Categorias.Nombre : "Sin categoría")
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            Proveedor
+        </dt>
+        <dd class="col-sm-9">
+            @(Model.Proveedores != null ? Model.Proveedores.Nombre : "Sin proveedor")
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd class="col-sm-9">
+            @Model.Precio.ToString("C")
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mt-4 text-end">
+            <input type="submit" value="Eliminar" class="btn btn-danger me-2" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>

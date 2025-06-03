@@ -1,0 +1,53 @@
+﻿@model SaludPlusAdmin.Models.Categorias
+
+@{
+    ViewBag.Title = "Eliminar Categoría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-danger mb-4">¿Estás seguro de que deseas eliminar esta categoría?</h2>
+
+<div class="card shadow-sm p-4 bg-white rounded">
+    <h4 class="text-secondary">Detalles de la Categoría</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.CategoriaID)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CategoriaID)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mt-4 text-end">
+            <input type="submit" value="Eliminar" class="btn btn-danger me-2" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>

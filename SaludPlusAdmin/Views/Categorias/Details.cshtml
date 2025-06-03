@@ -1,0 +1,48 @@
+﻿@model SaludPlusAdmin.Models.Categorias
+
+@{
+    ViewBag.Title = "Detalles de Categoría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 text-primary">Detalles de Categoría</h2>
+
+<div class="card shadow-sm p-4 bg-white rounded">
+    <h4 class="mb-3 text-secondary">Información de la Categoría</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.CategoriaID)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CategoriaID)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt class="col-sm-3 fw-semibold text-muted">
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+    </dl>
+
+    <div class="text-end mt-4">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.CategoriaID }, new { @class = "btn btn-primary me-2" })
+        @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

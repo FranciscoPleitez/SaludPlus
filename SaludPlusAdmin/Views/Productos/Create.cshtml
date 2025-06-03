@@ -1,0 +1,119 @@
+﻿@model SaludPlusAdmin.Models.Productos
+
+@{
+    ViewBag.Title = "Crear Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary">Crear Producto</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card p-4 shadow-sm">
+            <h4 class="mb-3">Información del Producto</h4>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.Nombre, new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.CodigoBarras, new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.CodigoBarras, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CodigoBarras, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.CategoriaID, "Categoría", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.DropDownList("CategoriaID", (SelectList)ViewBag.Categorias, "Seleccione categoría", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.CategoriaID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.ProveedorID, "Proveedor", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.DropDownList("ProveedorID", (SelectList)ViewBag.Proveedores, "Seleccione proveedor", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.ProveedorID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.Precio, new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.StockActual, new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.StockActual, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.StockActual, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.StockMinimo, new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.StockMinimo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.StockMinimo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.FechaVencimiento, new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.FechaVencimiento, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.FechaVencimiento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row align-items-center">
+                @Html.LabelFor(model => model.EsControlado, new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    <div class="form-check">
+
+                        @Html.CheckBox("EsControlado", Model.EsControlado ?? false)
+
+                        <label class="form-check-label" for="EsControlado">Es controlado</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.EsControlado, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-4 row align-items-center">
+                @Html.LabelFor(model => model.Activo, new { @class = "col-sm-2 col-form-label" })
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        @Html.CheckBox("Activo", Model.Activo ?? false)
+                        <label class="form-check-label" for="Activo">Activo</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-start gap-2">
+                <input type="submit" value="Crear" class="btn btn-primary px-4" />
+                @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary px-4" })
+            </div>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

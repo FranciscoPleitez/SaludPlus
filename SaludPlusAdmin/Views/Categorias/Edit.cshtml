@@ -1,0 +1,60 @@
+﻿@model SaludPlusAdmin.Models.SaludPlusDBEntities1
+@{
+    ViewBag.Title = "Editar Categoría";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4 text-primary">Editar Categoría</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card shadow-sm p-4 bg-white rounded">
+        <h4 class="mb-3 text-secondary">Datos de la Categoría</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.CategoriaID, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.CategoriaID, new { htmlAttributes = new { @class = "form-control", placeholder = "ID de Categoría", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.CategoriaID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre de la Categoría" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10">
+                @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control", rows = "3", placeholder = "Descripción" })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-4 row">
+            @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "col-sm-2 col-form-label fw-semibold" })
+            <div class="col-sm-10 d-flex align-items-center">
+                @Html.EditorFor(model => model.Activo, new { htmlAttributes = new { @class = "form-control" } })
+                <label class="form-check-label" for="Activo">Activo</label>
+                @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger ms-3" })
+            </div>
+        </div>
+
+        <div class="text-end">
+            <input type="submit" value="Guardar Cambios" class="btn btn-success px-4" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary ms-2" })
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

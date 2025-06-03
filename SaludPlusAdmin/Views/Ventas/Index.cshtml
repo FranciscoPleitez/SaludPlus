@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SaludPlusAdmin.Models.Ventas>
+@{
+    ViewBag.Title = "Ventas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary mb-4">Historial de ventas</h2>
+
+    <div class="mb-3">
+        @Html.ActionLink("Realizar nueva venta", "Create", null, new { @class = "btn btn-success" })
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoVenta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetodoPago)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CostoEnvio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Total)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Clientes.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empleados.Nombre)
+                </th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoVenta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MetodoPago)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CostoEnvio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Clientes.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Empleados.Nombre)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.VentaID }, new { @class = "btn btn-sm btn-primary me-1" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.VentaID }, new { @class = "btn btn-sm btn-info text-white me-1" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.VentaID }, new { @class = "btn btn-sm btn-danger" })
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="10" class="text-center text-muted">No hay ventas realizadas.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

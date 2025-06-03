@@ -1,0 +1,92 @@
+﻿@model SaludPlusAdmin.Models.Productos
+
+@{
+    ViewBag.Title = "Detalles del Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Detalles del Producto</h2>
+
+<div class="card shadow-sm p-4 mb-4 bg-light rounded">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">ID del Producto</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.ProductoID</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">Nombre</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.Nombre</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">Código de Barras</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.CodigoBarras</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">Categoría</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.CategoriaID</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">Proveedor</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.ProveedorID</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">Precio</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.Precio</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">Stock Actual</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.StockActual</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">Stock Mínimo</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.StockMinimo</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">Fecha de Vencimiento</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@Model.FechaVencimiento?</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">¿Es Controlado?</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@(Model.EsControlado == true ? "Sí" : "No")</p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label fw-bold">¿Activo?</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext">@(Model.Activo == true ? "Sí" : "No")</p>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ProductoID }, new { @class = "btn btn-primary me-2" })
+    @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-secondary" })
+</div>

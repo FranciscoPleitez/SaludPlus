@@ -1,0 +1,83 @@
+﻿@model SaludPlusAdmin.Models.Ventas
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ventas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoVenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoVenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetodoPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetodoPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostoEnvio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostoEnvio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleados.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleados.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VentaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
